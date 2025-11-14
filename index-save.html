@@ -3,64 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WINNING LIGHT GROUP SARL - Énergie Solaire</title>
+    <title>WINNING LIGHT GROUP SARL - Énergie Solaire et Éclairage LED</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2C5364;
-            --secondary-color: #203A43;
-            --accent-color: #4ECDC4;
-            --light-bg: #F8F9FA;
-            --dark-text: #2C3E50;
-            --light-text: #7F8C8D;
+            --primary-color: #FF9800;
+            --secondary-color: #2196F3;
+            --dark-color: #1A237E;
+            --light-color: #E3F2FD;
         }
         
         body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--dark-text);
-            background-color: white;
-            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
         }
         
         .navbar {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            padding: 15px 0;
-        }
-        
-        .navbar-brand {
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-        
-        .nav-link {
-            color: var(--dark-text);
-            font-weight: 500;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: var(--accent-color);
+            background-color: var(--dark-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         .hero-section {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
-            padding: 100px 0;
+            color: white;
+            padding: 120px 0;
             text-align: center;
         }
         
         .section-title {
             position: relative;
             padding-bottom: 15px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
-            font-weight: 600;
-            color: var(--primary-color);
         }
         
         .section-title:after {
@@ -69,50 +46,73 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 80px;
             height: 3px;
-            background-color: var(--accent-color);
+            background-color: var(--primary-color);
+        }
+        
+        .product-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-img {
+            height: 200px;
+            object-fit: cover;
         }
         
         .icon-box {
             text-align: center;
             padding: 30px 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
             margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .icon-box:hover {
+            transform: translateY(-10px);
         }
         
         .icon-box i {
             font-size: 40px;
-            color: var(--accent-color);
+            color: var(--primary-color);
             margin-bottom: 20px;
         }
         
         .bg-light-custom {
-            background-color: var(--light-bg);
+            background-color: var(--light-color);
         }
         
         .btn-primary {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            border-radius: 30px;
-            padding: 10px 25px;
-            font-weight: 500;
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
         }
         
         .btn-primary:hover {
-            background-color: #3bb5ae;
-            border-color: #3bb5ae;
+            background-color: #F57C00;
+            border-color: #F57C00;
         }
         
         .btn-outline-primary {
-            color: var(--accent-color);
-            border-color: var(--accent-color);
-            border-radius: 30px;
-            padding: 10px 25px;
-            font-weight: 500;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
         }
         
         .btn-outline-primary:hover {
-            background-color: var(--accent-color);
+            background-color: var(--primary-color);
             color: white;
         }
         
@@ -131,93 +131,66 @@
             position: absolute;
             left: 0;
             top: 5px;
-            color: var(--accent-color);
+            color: var(--primary-color);
         }
         
         footer {
-            background-color: var(--primary-color);
+            background-color: var(--dark-color);
             color: white;
             padding: 40px 0 20px;
         }
         
         .social-icons a {
             color: white;
-            font-size: 18px;
+            font-size: 20px;
             margin-right: 15px;
             transition: color 0.3s;
         }
         
         .social-icons a:hover {
-            color: var(--accent-color);
-        }
-        
-        .explanation-item {
-            padding: 20px;
-            margin-bottom: 30px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .tech-icon {
-            font-size: 30px;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: var(--accent-color);
-        }
-        
-        .stat-label {
-            font-size: 1rem;
-            color: var(--light-text);
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .video-card {
-            margin-bottom: 30px;
-            transition: transform 0.3s ease;
-        }
-        
-        .video-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .video-title {
-            font-weight: 600;
-            margin-top: 15px;
             color: var(--primary-color);
+        }
+        
+        /* Styles pour le carousel */
+        .gallery-carousel {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .carousel-item {
+            height: 500px;
+        }
+        
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .carousel-caption {
+            background-color: rgba(26, 35, 126, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .carousel-control-prev, .carousel-control-next {
+            width: 5%;
+        }
+        
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 5px;
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <img src="LOGO-bg.png" alt="" width="60" height="60">
             <a class="navbar-brand" href="#">
-                
-                WINNING LIGHT GROUP
+                <img src="LOGO-bg.png" alt="Winning Light Group" height="50">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -231,10 +204,13 @@
                         <a class="nav-link" href="#about">À propos</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Galerie</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#videos">Vidéos</a>
+                        <a class="nav-link" href="#products">Produits</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -247,10 +223,10 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <h1 class="display-5 fw-bold mb-4">L'énergie solaire accessible à tous</h1>
+            <h1 class="display-4 fw-bold mb-4">L'énergie solaire au service de votre avenir</h1>
             <p class="lead mb-4">Solutions innovantes en énergie solaire et éclairage LED pour particuliers et professionnels</p>
-            <a href="#contact" class="btn btn-primary me-2">Nous contacter</a>
-            <a href="#videos" class="btn btn-outline-primary">Voir nos vidéos</a>
+            <a href="#contact" class="btn btn-primary btn-lg me-2">Nous contacter</a>
+            <a href="#products" class="btn btn-outline-light btn-lg">Voir nos produits</a>
         </div>
     </section>
 
@@ -262,27 +238,66 @@
                     <h2 class="section-title">À propos de nous</h2>
                     <p class="lead">WINNING LIGHT GROUP SARL est une entreprise spécialisée dans les solutions d'énergie renouvelable et d'éclairage LED.</p>
                     <p>Fondée en 2016 et dirigée par Madame Diané Tenin Pinda, notre société s'engage à fournir des produits de qualité et des services professionnels pour répondre à tous vos besoins en énergie solaire et éclairage écoénergétique.</p>
-                    
-                    <div class="row mt-4 text-center">
-                        <div class="col-4">
-                            <div class="stat-number">7+</div>
-                            <div class="stat-label">Ans d'expérience</div>
-                        </div>
-                        <div class="col-4">
-                            <div class="stat-number">500+</div>
-                            <div class="stat-label">Clients satisfaits</div>
-                        </div>
-                        <div class="col-4">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Énergie propre</div>
-                        </div>
-                    </div>
+                    <p>Notre expertise couvre la vente, l'installation et la maintenance de systèmes solaires et d'éclairage LED pour les particuliers, les entreprises et les collectivités.</p>
                 </div>
                 <div class="col-lg-6">
-                    <div class="video-container mt-5 mt-lg-0">
-                        <iframe src="https://www.youtube.com/embed/3Awa3H9mv4c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <img src="https://cdn.pixabay.com/photo/2024/02/24/10/48/solar-panels-8593759_1280.png" alt="Équipe Winning Light Group" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Carousel Section -->
+    <section id="gallery" class="gallery-carousel">
+        <div class="container">
+            <h2 class="section-title text-center">Nos Réalisations</h2>
+            <p class="text-center mb-5">Découvrez quelques-unes de nos installations solaires et projets d'éclairage LED</p>
+            
+            <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="3"></button>
+                </div>
+                <div class="carousel-inner rounded shadow">
+                    <div class="carousel-item active">
+                        <img src="im3.jpg" class="d-block w-100" alt="Installation solaire résidentielle">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Installation Solaire Résidentielle</h5>
+                            <p>Installation complète de panneaux solaires pour une maison familiale à Abidjan</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="im4.jpg" class="d-block w-100" alt="Éclairage LED commercial">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Éclairage LED Commercial</h5>
+                            <p>Modernisation de l'éclairage d'un centre commercial avec des solutions LED économiques</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="im5.jpg" class="d-block w-100" alt="Lampadaires solaires">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Lampadaires Solaires Publics</h5>
+                            <p>Installation de lampadaires solaires autonomes pour l'éclairage d'une rue principale</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="image4.jpg" class="d-block w-100" alt="Système solaire industriel">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Système Solaire Industriel</h5>
+                            <p>Installation d'un système solaire photovoltaïque pour une entreprise manufacturière</p>
+                        </div>
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
             </div>
         </div>
     </section>
@@ -295,21 +310,21 @@
                 <div class="col-md-4">
                     <div class="icon-box">
                         <i class="fas fa-solar-panel"></i>
-                        <h4>Énergie Solaire</h4>
+                        <h3>Énergie Solaire</h3>
                         <p>Nous proposons une gamme complète de solutions solaires adaptées à tous vos besoins énergétiques.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="icon-box">
                         <i class="fas fa-lightbulb"></i>
-                        <h4>Éclairage LED</h4>
+                        <h3>Éclairage LED</h3>
                         <p>Découvrez nos solutions d'éclairage LED économiques et durables pour tous types d'applications.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="icon-box">
                         <i class="fas fa-tools"></i>
-                        <h4>Installation & Maintenance</h4>
+                        <h3>Installation & Maintenance</h3>
                         <p>Nos équipes techniques assurent l'installation et la maintenance de tous nos équipements.</p>
                     </div>
                 </div>
@@ -317,94 +332,47 @@
         </div>
     </section>
 
-    <!-- Videos Section -->
-    <section id="videos" class="py-5">
+    <!-- Products Section -->
+    <section id="products" class="py-5">
         <div class="container">
-            <h2 class="section-title text-center">Nos réalisations</h2>
-            <p class="text-center lead mb-5">Découvrez nos installations et le fonctionnement de l'énergie solaire à travers nos vidéos</p>
+            <h2 class="section-title text-center">Nos Produits</h2>
             
+            <h3 class="mt-5 mb-4 text-center">Énergie Solaire</h3>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="video-card">
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/xKxrkht7CpY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="im4.jpg" class="card-img-top product-img" alt="Chauffe-Eau Solaire">
+                        <div class="card-body">
+                            <h5 class="card-title"> Panneaux Solaire</h5>
+                            <p class="card-text"> Nos Meilleurs panneaux solaires </p>
                         </div>
-                        <h4 class="video-title">Comment fonctionne l'énergie solaire ?</h4>
-                        <p>Explication détaillée du processus de transformation de l'énergie solaire en électricité.</p>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="video-card">
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/HciKU63dLtA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="image1.jpg" class="card-img-top product-img" alt="Lampadaire Solaire">
+                        <div class="card-body">
+                            <h5 class="card-title">Lampadaires Solaires</h5>
+                            <p class="card-text">Éclairage autonome pour routes, parcs et espaces publics sans raccordement électrique.</p>
                         </div>
-                        <h4 class="video-title">Installation de panneaux solaires</h4>
-                        <p>Démonstration de notre processus d'installation de systèmes solaires résidentiels.</p>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="video-card">
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/6RgOB1_kFp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="https://kitsolaire-discount.com/13389-large_default/kit-solaire-7500w-autonome-15kw-48-230380v-batterie-14kwh.jpg" class="card-img-top product-img" alt="Kits Solaires">
+                        <div class="card-body">
+                            <h5 class="card-title">Kits Autonomes Solaires</h5>
+                            <p class="card-text">Solutions complètes pour l'électrification solaire des habitations et sites isolés.</p>
                         </div>
-                        <h4 class="video-title">Avantages des lampadaires solaires</h4>
-                        <p>Présentation des bénéfices de l'éclairage public solaire pour les collectivités.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="video-card">
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/hludL1a0h5Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <h4 class="video-title">Témoignage client</h4>
-                        <p>Retour d'expérience d'un de nos clients satisfaits par notre installation solaire.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Explanation Section -->
-    <section class="py-5 bg-light-custom">
-        <div class="container">
-            <h2 class="section-title text-center">Comprendre l'énergie solaire</h2>
-            <p class="text-center lead mb-5">Découvrez le fonctionnement et les avantages des technologies solaires</p>
             
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="explanation-item text-center">
-                        <i class="fas fa-sun tech-icon"></i>
-                        <h5>Captation Solaire</h5>
-                        <p>Les panneaux captent l'énergie du soleil même par temps nuageux</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="explanation-item text-center">
-                        <i class="fas fa-bolt tech-icon"></i>
-                        <h5>Transformation</h5>
-                        <p>Conversion de l'énergie solaire en électricité utilisable</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="explanation-item text-center">
-                        <i class="fas fa-car-battery tech-icon"></i>
-                        <h5>Stockage</h5>
-                        <p>Conservation de l'énergie excédentaire dans des batteries</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="explanation-item text-center">
-                        <i class="fas fa-home tech-icon"></i>
-                        <h5>Utilisation</h5>
-                        <p>Alimentation de votre habitation ou entreprise en énergie propre</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5">
+    <section id="contact" class="py-5 bg-light-custom">
         <div class="container">
             <h2 class="section-title text-center">Contactez-nous</h2>
             <div class="row">
@@ -452,9 +420,46 @@
             </div>
         </div>
     </section>
+    <!-- Formations Section -->
+<section id="formations" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center">Nos Formations</h2>
+        <p class="text-center mb-5">Nous proposons des formations pratiques pour vous permettre de maîtriser les technologies solaires et LED.</p>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="icon-box h-100">
+                    <i class="fas fa-sun"></i>
+                    <h3>Formation en Énergie Solaire</h3>
+                    <p>Apprenez à dimensionner, installer et entretenir des systèmes photovoltaïques, des batteries et onduleurs solaires.</p>
+                    <a href="#contact" class="btn btn-outline-primary mt-3">S'inscrire</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box h-100">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Formation en Éclairage LED</h3>
+                    <p>Découvrez les techniques d’installation et de maintenance de l’éclairage LED pour les entreprises et collectivités.</p>
+                    <a href="#contact" class="btn btn-outline-primary mt-3">S'inscrire</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box h-100">
+                    <i class="fas fa-tools"></i>
+                    <h3>Formation Installation & Maintenance</h3>
+                    <p>Perfectionnez-vous dans la maintenance préventive et corrective des installations solaires et des lampadaires autonomes.</p>
+                    <a href="#contact" class="btn btn-outline-primary mt-3">S'inscrire</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <!-- Footer -->
     <footer>
+
+        
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -466,8 +471,9 @@
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-white">Accueil</a></li>
                         <li><a href="#about" class="text-white">À propos</a></li>
+                        <li><a href="#gallery" class="text-white">Galerie</a></li>
                         <li><a href="#services" class="text-white">Services</a></li>
-                        <li><a href="#videos" class="text-white">Vidéos</a></li>
+                        <li><a href="#products" class="text-white">Produits</a></li>
                         <li><a href="#contact" class="text-white">Contact</a></li>
                     </ul>
                 </div>
