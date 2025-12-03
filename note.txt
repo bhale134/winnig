@@ -1,0 +1,16 @@
+Airplayce c'est deux application une application Pour les clients appelé Airplayce et une autre pour les prestataire de services/vendeurs Airplayce Business
+
+-Airplayce :
+vous permet de rentrer en contact avec des business à proximité ex: salon de beauté, salon de coiffure, salle de sport, ...
+ 
+ie reserver des seances dans un salon de beauté, commander de la nourriture dans un restaurant à proximité ...
+
+dans la page d'accueil il y a une liste de services ou produits à proximité qui s'affiche sur la page de la carte ou il y a la map vous pouvez rechercher une quartier et voir directement l'ensemble
+des bons coins dans le quartier en question (pour tester taper treichville)
+
+l'application est dotée d'une messagerie instantanée qui vous permet de rentrer directement en contact avec les vendeurs sans forcement avoir accès à leurs contact.
+
+- Airplayce Business
+
+Cette application est destinée aux vendeurs et prestataires de services c'est dans cette applications que les produits et services sont ajoutés, les vendeurs 
+reçoivent les reservations, commandes et messages.
