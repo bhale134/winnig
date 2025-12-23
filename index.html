@@ -10,581 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #FF9800;
-            --primary-dark: #F57C00;
-            --secondary-color: #2196F3;
-            --secondary-dark: #1976D2;
-            --dark-color: #1A237E;
-            --dark-light: #283593;
-            --light-color: #E3F2FD;
-            --accent-color: #FFC107;
-            --text-color: #333;
-            --text-light: #666;
-            --white: #ffffff;
-            --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-            --gradient-secondary: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-dark) 100%);
-            --gradient-dark: linear-gradient(135deg, var(--dark-color) 0%, var(--dark-light) 100%);
-            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --shadow-medium: 0 10px 25px rgba(0, 0, 0, 0.15);
-            --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.2);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-color);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-        }
-
-        /* Navigation */
-        .navbar {
-            background: var(--gradient-dark);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            padding: 15px 0;
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled {
-            padding: 10px 0;
-            background: rgba(26, 35, 126, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        .navbar-brand img {
-            transition: var(--transition);
-        }
-
-        .navbar-nav .nav-link {
-            color: var(--white) !important;
-            font-weight: 500;
-            margin: 0 8px;
-            padding: 8px 16px !important;
-            border-radius: 30px;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .navbar-nav .nav-link:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: var(--transition);
-            transform: translateX(-50%);
-        }
-
-        .navbar-nav .nav-link:hover:before,
-        .navbar-nav .nav-link.active:before {
-            width: 80%;
-        }
-
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            color: var(--primary-color) !important;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            padding: 180px 0 120px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-primary);
-            opacity: 0.2;
-            z-index: 1;
-        }
-
-        .hero-section .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-section h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-            animation: fadeInDown 1s ease;
-        }
-
-        .hero-section p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
-
-        .hero-buttons {
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        /* Section Titles */
-        .section-title {
-            position: relative;
-            padding-bottom: 20px;
-            margin-bottom: 50px;
-            text-align: center;
-            font-weight: 700;
-            color: var(--dark-color);
-        }
-
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--gradient-primary);
-            border-radius: 2px;
-        }
-
-        .section-title.light:after {
-            background: var(--white);
-        }
-
-        /* About Section */
-        #about {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, #ffffff 0%, var(--light-color) 100%);
-        }
-
-        #about img {
-            border-radius: 15px;
-            box-shadow: var(--shadow-medium);
-            transition: var(--transition);
-        }
-
-        #about img:hover {
-            transform: scale(1.02);
-        }
-
-        /* Services Section */
-        #services {
-            padding: 100px 0;
-            background: var(--light-color);
-            position: relative;
-        }
-
-        #services:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.05;
-        }
-
-        .icon-box {
-            text-align: center;
-            padding: 40px 30px;
-            border-radius: 15px;
-            background-color: var(--white);
-            box-shadow: var(--shadow-light);
-            transition: var(--transition);
-            margin-bottom: 30px;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .icon-box:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 0;
-            background: var(--gradient-primary);
-            transition: var(--transition);
-            z-index: -1;
-        }
-
-        .icon-box:hover:before {
-            height: 100%;
-        }
-
-        .icon-box:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-heavy);
-            color: var(--white);
-        }
-
-        .icon-box:hover i,
-        .icon-box:hover h3,
-        .icon-box:hover p {
-            color: var(--white);
-        }
-
-        .icon-box i {
-            font-size: 60px;
-            color: var(--primary-color);
-            margin-bottom: 25px;
-            transition: var(--transition);
-        }
-
-        .icon-box h3 {
-            font-weight: 600;
-            margin-bottom: 20px;
-            transition: var(--transition);
-        }
-
-        .icon-box p {
-            transition: var(--transition);
-        }
-
-        /* Products Section */
-        #products {
-            padding: 100px 0;
-            background: var(--white);
-        }
-
-        .product-card {
-            transition: var(--transition);
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow-light);
-            margin-bottom: 30px;
-            height: 100%;
-            position: relative;
-        }
-
-        .product-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-dark);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: 1;
-        }
-
-        .product-card:hover:before {
-            opacity: 0.8;
-        }
-
-        .product-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .product-img {
-            height: 220px;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .product-card:hover .product-img {
-            transform: scale(1.1);
-        }
-
-        .card-body {
-            padding: 25px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .card-title {
-            font-weight: 600;
-            color: var(--dark-color);
-            margin-bottom: 15px;
-        }
-
-        .card-text {
-            color: var(--text-light);
-        }
-
-        .product-card:hover .card-title,
-        .product-card:hover .card-text {
-            color: var(--white);
-        }
-
-        /* Gallery Carousel */
-        .gallery-carousel {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, var(--light-color) 0%, #ffffff 100%);
-        }
-
-        .carousel-item {
-            height: 550px;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .carousel-item img {
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-        }
-
-        .carousel-caption {
-            background: rgba(26, 35, 126, 0.85);
-            padding: 25px;
-            border-radius: 10px;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            text-align: center;
-        }
-
-        .carousel-control-prev,
-        .carousel-control-next {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-            opacity: 0.8;
-            transition: var(--transition);
-        }
-
-        .carousel-control-prev {
-            left: 20px;
-        }
-
-        .carousel-control-next {
-            right: 20px;
-        }
-
-        .carousel-control-prev:hover,
-        .carousel-control-next:hover {
-            opacity: 1;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .carousel-indicators button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin: 0 5px;
-            background-color: var(--dark-color);
-            transition: var(--transition);
-        }
-
-        .carousel-indicators button.active {
-            background-color: var(--primary-color);
-            transform: scale(1.3);
-        }
-
-        /* Formations Section */
-        #formations {
-            padding: 100px 0;
-            background: var(--light-color);
-        }
-
-        /* Contact Section */
-        #contact {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, var(--light-color) 0%, #ffffff 100%);
-        }
-
-        .contact-info {
-            list-style: none;
-            padding: 0;
-        }
-
-        .contact-info li {
-            margin-bottom: 20px;
-            padding-left: 40px;
-            position: relative;
-        }
-
-        .contact-info i {
-            position: absolute;
-            left: 0;
-            top: 5px;
-            color: var(--primary-color);
-            font-size: 20px;
-            width: 30px;
-            height: 30px;
-            background: rgba(255, 152, 0, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Buttons */
-        .btn-primary {
-            background: var(--gradient-primary);
-            border: none;
-            border-radius: 30px;
-            padding: 12px 30px;
-            font-weight: 500;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.4);
-            background: var(--gradient-primary);
-        }
-
-        .btn-outline-primary {
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            border-radius: 30px;
-            padding: 12px 30px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .btn-outline-primary:hover {
-            background: var(--gradient-primary);
-            border-color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
-        }
-
-        .btn-outline-light {
-            border-radius: 30px;
-            padding: 12px 30px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .btn-outline-light:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--gradient-dark);
-            color: white;
-            padding: 70px 0 20px;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 20px;
-            margin-right: 15px;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
-
-        .social-icons a:hover {
-            color: var(--primary-color);
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-        }
-
-        footer .list-unstyled li {
-            margin-bottom: 10px;
-        }
-
-        footer .list-unstyled a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        footer .list-unstyled a:hover {
-            color: var(--primary-color);
-            padding-left: 5px;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 120px 0 80px;
-            }
-
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
-
-            .carousel-item {
-                height: 400px;
-            }
-
-            .section-title {
-                margin-bottom: 30px;
-            }
-
-            #about,
-            #services,
-            #products,
-            #formations,
-            #contact {
-                padding: 60px 0;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -741,37 +167,126 @@
 
             <h3 class="mt-5 mb-4 text-center">Énergie Solaire</h3>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="im4.jpg" class="card-img-top product-img" alt="Panneaux Solaire">
-                        <div class="card-body">
-                            <h5 class="card-title">Panneaux Solaires</h5>
-                            <p class="card-text">Nos meilleurs panneaux solaires haute performance pour une production
-                                d'énergie optimale.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="lampadaire.jpeg" class="card-img-top product-img" alt="Lampadaire Solaire">
-                        <div class="card-body">
-                            <h5 class="card-title">Lampadaires Solaires</h5>
-                            <p class="card-text">Éclairage autonome pour routes, parcs et espaces publics sans
-                                raccordement électrique.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-card">
-                        <img src="kit-solaire.jpeg" class="card-img-top product-img" alt="Kits Solaires">
-                        <div class="card-body">
-                            <h5 class="card-title">Kits Autonomes Solaires</h5>
-                            <p class="card-text">Solutions complètes pour l'électrification solaire des habitations et
-                                sites isolés.</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Batterie lithium BCT-UU48-200 -->
+    <div class="col-md-4 col-sm-6 mb-4">
+        <div class="product-card">
+            <img src="Batterie lithium BCT-UU48-200.jpeg" class="card-img-top product-img" alt="Batterie lithium BCT-UU48-200">
+            <div class="card-body">
+                <h5 class="card-title">Batterie lithium BCT-UU48-200</h5>
+                <p class="card-text">Batterie lithium haute performance pour systèmes solaires.</p>
+                <div class="product-price">200 000 FR</div>
             </div>
+        </div>
+    </div>
+    
+    <!-- Batterie lithium BCT-UU48-300 -->
+    <div class="col-md-4 col-sm-6 mb-4">
+        <div class="product-card">
+            <img src="Batterie-lithium-BCT-UU48-300-1.850.000.jpeg" class="card-img-top product-img" alt="Batterie lithium BCT-UU48-300">
+            <div class="card-body">
+                <h5 class="card-title">Batterie lithium BCT-UU48-300</h5>
+                <p class="card-text">Batterie lithium de grande capacité pour installations solaires étendues.</p>
+                <div class="product-price">1 850 000 FR</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Batterie lithium V-BCT-UU-48-300 -->
+    <div class="col-md-4 col-sm-6 mb-4">
+        <div class="product-card">
+            <img src="Batterie-lithium-V-BCT-UU-48-300-communication-et-parallèle-1.800.000fr.jpeg" class="card-img-top product-img" alt="Batterie lithium V-BCT-UU-48-300">
+            <div class="card-body">
+                <h5 class="card-title">Batterie lithium V-BCT-UU-48-300</h5>
+                <p class="card-text">Batterie lithium avec communication et fonction parallèle pour systèmes évolutifs.</p>
+                <div class="product-price">1 800 000 FR</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Connecteur MC4 -->
+    <div class="col-md-4 col-sm-6 mb-4">
+        <div class="product-card">
+            <img src="Connecteur-MC4-45A-000v-1800fr.jpeg" class="card-img-top product-img" alt="Connecteur MC4">
+            <div class="card-body">
+                <h5 class="card-title">Connecteur MC4 45A 1000V</h5>
+                <p class="card-text">Connecteurs étanches pour panneaux solaires, sécurité optimale.</p>
+                <div class="product-price">1 800 FR</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Générateur solaire 500W -->
+    <div class="col-md-4 col-sm-6 mb-4">
+        <div class="product-card">
+            <img src="Générateur-solaire-500w-400.000fr.jpeg" class="card-img-top product-img" alt="Générateur solaire 500W">
+            <div class="card-body">
+                <h5 class="card-title">Générateur solaire 500W</h5>
+                <p class="card-text">Générateur solaire portable pour alimentation d'urgence et activités extérieures.</p>
+                <div class="product-price">400 000 FR</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Inverteur 6,2kw -->
+    <div class="col-md-4 col-sm-6 mb-4">
+        <div class="product-card">
+            <img src="Inverteur-6,2kw-520000fr.jpeg" class="card-img-top product-img" alt="Inverseur 6,2kW">
+            <div class="card-body">
+                <h5 class="card-title">Inverseur 6,2kW</h5>
+                <p class="card-text">Onduleur haute puissance pour conversion courant continu/alternatif.</p>
+                <div class="product-price">520 000 FR</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Panneaux solaires 590W -->
+    <div class="col-md-4 col-sm-6 mb-4">
+        <div class="product-card">
+            <img src="Panneaux solaires 590w.jpeg" class="card-img-top product-img" alt="Panneaux solaires 590W">
+            <div class="card-body">
+                <h5 class="card-title">Panneaux solaires 590W</h5>
+                <p class="card-text">Panneaux solaires haute efficacité pour production énergétique maximale.</p>
+                <div class="product-price">Prix non spécifié</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Parafoudre -->
+    <div class="col-md-4 col-sm-6 mb-4">
+        <div class="product-card">
+            <img src="parafoudre.jpeg" class="card-img-top product-img" alt="Parafoudre">
+            <div class="card-body">
+                <h5 class="card-title">Parafoudre</h5>
+                <p class="card-text">Protection contre les surtensions pour installations solaires.</p>
+                <div class="product-price">23 000 FR</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Rouleau câble 4mm² -->
+    <div class="col-md-4 col-sm-6 mb-4">
+        <div class="product-card">
+            <img src="rouleau-4mm2-90000.jpeg" class="card-img-top product-img" alt="Rouleau câble 4mm²">
+            <div class="card-body">
+                <h5 class="card-title">Rouleau câble solaire 4mm²</h5>
+                <p class="card-text">Câble photovoltaïque de section 4mm² pour installations solaires.</p>
+                <div class="product-price">90 000 FR</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Rouleau câble 6mm² -->
+    <div class="col-md-4 col-sm-6 mb-4">
+        <div class="product-card">
+            <img src="rouleau-4mm2-90000.jpeg" class="card-img-top product-img" alt="Rouleau câble 6mm²">
+            <div class="card-body">
+                <h5 class="card-title">Rouleau câble solaire 6mm²</h5>
+                <p class="card-text">Câble photovoltaïque de section 6mm² pour installations haute puissance.</p>
+                <div class="product-price">110 000 FR</div>
+            </div>
+        </div>
+    </div>
+</div>
         </div>
     </section>
 
